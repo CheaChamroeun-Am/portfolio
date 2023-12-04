@@ -2,26 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  html {
+    @apply scroll-smooth
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+    .section {
+      @apply container mx-auto mt-40 px-6 
+    }
+
+    .section1{
+      @apply container mx-auto px-6 
+    }
+  }
+
+  [data-theme="dark"] .bg-bg{
+    @apply bg-[#121212]
+  }
+
+  [data-theme="dark"] .bg-gray-200{
+    @apply bg-transparent
+  }
+
+  [data-theme="dark"] .contact-title{
+    @apply text-black
+  }
+
+  [data-theme="dark"] .contact-icon{
+    @apply text-black
+  }
+
+  [data-theme="dark"] .tab-text{
+    @apply text-white
+  }
+
+  [data-theme="dark"] .hover-tab{
+    @apply hover:text-white
+  }
+
+  /* Project */
+  [data-theme="dark"] .text-project{
+    @apply text-white
+  }
+
+  [data-theme="dark"] .project-title{
+    @apply text-black
+  }
+
+  /* About */
+  [data-theme="dark"] .card-title{
+    @apply text-black
+  }
+  [data-theme="dark"] .card-text{
+    @apply text-black
+  }
+  [data-theme="dark"] .card-icon{
+    @apply text-black
+  }
+
+  @keyframes slow-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .slow-spin {
+    animation: slow-spin 20s linear infinite;
+  }
